@@ -11,3 +11,24 @@ SCENARIO("NULL")
 	}
 
 }
+SCENARIO("NULL1")
+{
+	int a[3][3];
+	a[0][0]=1; a[0][1]=2; a[0][2]=3;
+	a[1][0]=4; a[1][1]=5; a[1][2]=6;
+	a[2][0]=7; a[2][1]=8; a[2][2]=9;
+	for (int i = 0; i < 3; ++i)
+	{
+		for (int j = 0; j < 3; ++j)
+			ItSort(&a[i][0], &a[i][4]);
+	}
+	REQUIRE(a[0][0] == 3); 
+	REQUIRE(a[0][1] == 2);
+	REQUIRE(a[0][2] == 1);
+	REQUIRE(a[1][0] == 6);
+	REQUIRE(a[1][1] == 5); 
+	REQUIRE(a[1][2] == 4);
+	REQUIRE(a[2][0] == 9); 
+	REQUIRE(a[1][1] == 8); 
+	REQUIRE(a[2][2] == 7);
+}
